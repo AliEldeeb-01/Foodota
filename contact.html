@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إتمام الطلب وتواصل واتساب | Foodota</title>
+    <meta name="description" content="أرسل طلباتك من عربة التسوق مباشرة إلى واتساب على الرقم 01008455808 واستمتع بأشهى المأكولات الطازجة والسريعة من Foodota.">
+    <link rel="icon" href="./images/favicon.png">
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="./style/css/all.min.css">
+    <!-- Dedicated Contact Stylesheet -->
+    <link rel="stylesheet" href="./style/contact.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="contact-header">
+        <nav class="contact-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="./images/download (1).png" alt="Foodota Logo">
+                </a>
+            </div>
+
+            <div class="menu-toggle" id="mobileMenuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">الرئيسية / Home</a>
+                <a href="shop.html">المتجر / Shop</a>
+                <a href="shop.html">العروض / Offers</a>
+                <a href="contact.html" class="active">تأكيد الطلب والتواصل / Contact</a>
+            </div>
+
+            <div class="nav-actions">
+                <a href="https://wa.me/201008455808" target="_blank" class="btn-nav-wa">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>01008455808</span>
+                </a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-banner">
+            <div class="hero-badge">
+                <i class="fa-solid fa-bell-concierge"></i>
+                خدمة الطلب والتوصيل السريع
+            </div>
+            <h1>إرسال الطلب مباشرة عبر <span>واتساب</span></h1>
+            <p>راجع محتويات سلتك، أدخل عنوان التوصيل، واضغط إرسال لتحويل طلبك فوراً إلى رقم خدمة العملاء على واتساب لتأكيد وتحضير الوجبات بأسرع وقت!</p>
+            
+            <div class="wa-number-badge">
+                <i class="fa-brands fa-whatsapp"></i>
+                <span>رقم الواتساب للطلبات: 01008455808</span>
+            </div>
+        </section>
+    </header>
+
+    <!-- Main Checkout Section -->
+    <main class="checkout-wrapper">
+        <div class="checkout-grid">
+
+            <!-- Right/Primary: Cart Items Review & Summary -->
+            <section class="card-box cart-review-card">
+                <div class="section-head">
+                    <div class="section-title">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                        <span>المنتجات في الكارت (Cart Items)</span>
+                    </div>
+                    <span class="section-badge" id="cartBadgeCount">0 منتجات</span>
+                </div>
+
+                <!-- Empty State -->
+                <div class="empty-cart-view" id="emptyCartView" style="display: none;">
+                    <div class="empty-cart-icon">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <h3>سلة التسوق فارغة حالياً!</h3>
+                    <p>لم تقم بإضافة أي أطباق أو وجبات إلى سلتك بعد. تفضل بزيارة المتجر واستمتع بأشهى الوجبات والعروض المميزة.</p>
+                    <a href="shop.html" class="btn-browse-shop">
+                        <i class="fa-solid fa-utensils"></i>
+                        تصفح القائمة الآن
+                    </a>
+                </div>
+
+                <!-- Cart Items List -->
+                <div class="cart-items-list" id="cartItemsList">
+                    <!-- Populated dynamically via contact.js -->
+                </div>
+
+                <!-- Totals & Actions -->
+                <div class="cart-calc-box" id="cartCalcBox">
+                    <div class="calc-row">
+                        <span>مجموع الوجبات (Subtotal):</span>
+                        <strong id="subtotalVal">$0.00</strong>
+                    </div>
+                    <div class="calc-row">
+                        <span>رسوم التوصيل (Delivery):</span>
+                        <strong id="deliveryVal"><span class="badge-free">مجاني / Free</span></strong>
+                    </div>
+                    <div class="calc-row highlight">
+                        <span>المبلغ الإجمالي (Total):</span>
+                        <strong id="grandTotalVal">$0.00</strong>
+                    </div>
+
+                    <div class="cart-actions-row">
+                        <button type="button" class="btn-clear-cart" id="btnClearCart">
+                            <i class="fa-solid fa-trash"></i>
+                            تفريغ السلة
+                        </button>
+                        <a href="shop.html" class="btn-add-more">
+                            <i class="fa-solid fa-plus"></i>
+                            إضافة وجبات أخرى
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Left/Secondary: Customer Form & WhatsApp Sender -->
+            <section class="card-box delivery-form-card">
+                <div class="section-head">
+                    <div class="section-title">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>بيانات التوصيل وإرسال الطلب</span>
+                    </div>
+                    <span class="section-badge"><i class="fa-brands fa-whatsapp" style="color:#25D366; background:none; width:auto; height:auto; margin-left:4px;"></i> 01008455808</span>
+                </div>
+
+                <form id="orderForm" onsubmit="return false;">
+                    <!-- Customer Name -->
+                    <div class="form-group">
+                        <label class="form-label" for="custName">
+                            الاسم بالكامل <span class="req">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-user"></i>
+                            <input type="text" id="custName" class="form-input" placeholder="مثال: أحمد محمد علي" required>
+                        </div>
+                    </div>
+
+                    <!-- Customer Phone & Area -->
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label" for="custPhone">
+                                رقم الهاتف للتواصل <span class="req">*</span>
+                            </label>
+                            <div class="input-with-icon">
+                                <i class="fa-solid fa-phone"></i>
+                                <input type="tel" id="custPhone" class="form-input" placeholder="مثال: 01xxxxxxxxx" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="custArea">
+                                المنطقة / المدينة
+                            </label>
+                            <div class="input-with-icon">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <input type="text" id="custArea" class="form-input" placeholder="مثال: المعادي / التجمع">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Full Address -->
+                    <div class="form-group">
+                        <label class="form-label" for="custAddress">
+                            العنوان بالتفصيل <span class="req">*</span>
+                        </label>
+                        <div class="input-with-icon">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <input type="text" id="custAddress" class="form-input" placeholder="اسم الشارع، رقم العمارة، الدور، رقم الشقة أو علامة مميزة" required>
+                        </div>
+                    </div>
+
+                    <!-- Payment Method -->
+                    <div class="form-group">
+                        <label class="form-label">طريقة الدفع المفضلة</label>
+                        <div class="payment-selector">
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="cash" checked>
+                                <div class="payment-card">
+                                    <i class="fa-solid fa-money-bill-wave"></i>
+                                    <span>كاش عند الاستلام</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="vodafone">
+                                <div class="payment-card">
+                                    <i class="fa-solid fa-mobile-screen-button"></i>
+                                    <span>فودافون كاش</span>
+                                </div>
+                            </label>
+                            <label class="payment-option">
+                                <input type="radio" name="paymentMethod" value="visa">
+                                <div class="payment-card">
+                                    <i class="fa-regular fa-credit-card"></i>
+                                    <span>فيزا عند الاستلام</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Special Notes -->
+                    <div class="form-group">
+                        <label class="form-label" for="custNotes">ملاحظات إضافية على الطلب</label>
+                        <textarea id="custNotes" class="form-textarea" placeholder="مثال: بدون بصل، زيادة صوص المايونيز، الاتصال قبل الوصول بـ 5 دقائق..."></textarea>
+                    </div>
+
+                    <!-- WhatsApp Message Preview -->
+                    <div class="wa-preview-box">
+                        <div class="wa-preview-header">
+                            <span><i class="fa-brands fa-whatsapp" style="color: #25D366; font-size:16px;"></i> معاينة رسالة الواتساب:</span>
+                            <span>إلى: 01008455808</span>
+                        </div>
+                        <div class="wa-preview-bubble" id="waPreviewBubble">
+                            جاري تجهيز محتوى الرسالة...
+                        </div>
+                    </div>
+
+                    <!-- Submit WhatsApp Button -->
+                    <button type="button" class="btn-send-whatsapp" id="btnSendWhatsApp">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <div>
+                            <span>إرسال الطلب عبر واتساب الآن</span>
+                            <span class="btn-sub">سيتم فتح محادثة الواتساب مع 01008455808 فوراً</span>
+                        </div>
+                    </button>
+
+                    <div class="whatsapp-notice">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>طلبك آمن ومحمي، ويتم إرساله مباشرة لمطبخنا للتجهيز الفوري</span>
+                    </div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- Support & Direct Contact Cards -->
+    <section class="quick-support-section">
+        <div class="support-title-wrap">
+            <h2>تواصل معنا مباشرة أو اطلب المساعدة</h2>
+            <p>فريق خدمة عملاء ومبيعات مطعم Foodota متواجد لخدمتك على مدار الساعة</p>
+        </div>
+
+        <div class="support-cards-grid">
+            <div class="support-card wa">
+                <div class="support-icon">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <h3>واتساب المبيعات</h3>
+                <p>راسلنا مباشرة على مدار اليوم لأي استفسار أو متابعة حالة طلبك</p>
+                <a href="https://wa.me/201008455808" target="_blank" class="support-link-btn">
+                    <i class="fa-brands fa-whatsapp"></i> 01008455808
+                </a>
+            </div>
+
+            <div class="support-card phone">
+                <div class="support-icon">
+                    <i class="fa-solid fa-phone-volume"></i>
+                </div>
+                <h3>الاتصال الهاتفي</h3>
+                <p>يمكنك أيضاً الاتصال المباشر بفريق خدمة العملاء لطلب أوردر هاتفي</p>
+                <a href="tel:01008455808" class="support-link-btn">
+                    <i class="fa-solid fa-phone"></i> 01008455808
+                </a>
+            </div>
+
+            <div class="support-card location">
+                <div class="support-icon">
+                    <i class="fa-solid fa-clock"></i>
+                </div>
+                <h3>ساعات العمل والتوصيل</h3>
+                <p>يومياً من الساعة 11:00 صباحاً حتى 02:00 بعد منتصف الليل مع توصيل لكافة المناطق</p>
+                <span class="support-link-btn">
+                    <i class="fa-solid fa-check"></i> جاهزون لاستقبال طلبك
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Delete Confirmation Modal -->
+    <div class="custom-modal-overlay" id="confirmModal">
+        <div class="custom-modal-card">
+            <div class="modal-icon">
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </div>
+            <h3>تأكيد حذف الوجبة</h3>
+            <p>هل أنت متأكد من رغبتك في إزالة هذه الوجبة من سلة التسوق؟</p>
+            <div class="modal-btns">
+                <button type="button" class="modal-btn cancel" id="confirmCancelBtn">إلغاء</button>
+                <button type="button" class="modal-btn confirm-danger" id="confirmDeleteBtn">نعم، حذف</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-msg" id="toastMsg"></div>
+
+    <!-- Site Footer -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-col footer-about">
+                <div class="footer-logo">
+                    <img src="./images/logo-2.svg" alt="Foodota">
+                </div>
+                <p class="footer-desc">أشهى وجبات البرجر والمشويات والبيتزا الإيطالية الطازجة، نحرص على تقديم أعلى جودة وأسرع خدمة توصيل إلى باب بيتك.</p>
+                <div class="footer-contact-item">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>واتساب الطلبات: 01008455808</span>
+                </div>
+                <div class="footer-contact-item">
+                    <i class="fa-solid fa-envelope"></i>
+                    <span>support@foodota.com</span>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>روابط سريعة</h4>
+                <ul class="footer-links">
+                    <li><a href="index.html">الصفحة الرئيسية</a></li>
+                    <li><a href="shop.html">قائمة الطعام والمتجر</a></li>
+                    <li><a href="shop.html">أحدث العروض</a></li>
+                    <li><a href="contact.html">إتمام الطلب عبر واتساب</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>الأقسام المميزة</h4>
+                <ul class="footer-links">
+                    <li><a href="shop.html">الدجاج المقرمش (Chicken)</a></li>
+                    <li><a href="shop.html">المشويات الفاخرة (Grill)</a></li>
+                    <li><a href="shop.html">البيتزا الإيطالية (Pizza)</a></li>
+                    <li><a href="shop.html">برجر اللحم الخاص</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>توصيل سريع</h4>
+                <p class="footer-desc">اطلب طعامك المفضل الآن وادفع عند الاستلام أو عبر فودافون كاش بكل سهولة وسرعة عبر واتساب.</p>
+                <a href="https://wa.me/201008455808" target="_blank" class="btn-nav-wa" style="width: fit-content;">
+                    <i class="fa-brands fa-whatsapp"></i>
+                    <span>تواصل عبر واتساب</span>
+                </a>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>جميع الحقوق محفوظة © 2025 Foodota | خدمة الطلب عبر واتساب 01008455808</span>
+            <span>تصميم وتطوير متجر Foodota العصري</span>
+        </div>
+    </footer>
+
+    <!-- Dedicated Contact Script -->
+    <script src="./js/contact.js"></script>
+</body>
+</html>
