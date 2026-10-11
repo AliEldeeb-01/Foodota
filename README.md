@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🍔 Foodota
+#  Foodota
 
 ### Modern Restaurant & Online Food Ordering Website
 
@@ -19,7 +19,7 @@ Foodota provides a complete front-end restaurant experience with product browsin
 
 ---
 
-## 📖 About The Project
+##  About The Project
 
 Foodota is a modern restaurant website designed to provide customers with a smooth and realistic online food ordering experience.
 
