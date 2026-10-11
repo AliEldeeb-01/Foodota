@@ -31,9 +31,9 @@ The project was built with pure HTML, CSS, and JavaScript to demonstrate strong 
 
 ---
 
-## ✨ Features
+##  Features
 
-### 🏠 Home Page
+###  Home Page
 
 - Modern restaurant landing page
 - Hero section with clear call-to-action
@@ -44,7 +44,7 @@ The project was built with pure HTML, CSS, and JavaScript to demonstrate strong 
 - Hover and active states
 - Fully responsive layout
 
-### 🛍️ Shop
+###  Shop
 
 - Display restaurant products dynamically
 - Products generated from JavaScript data
@@ -52,7 +52,7 @@ The project was built with pure HTML, CSS, and JavaScript to demonstrate strong 
 - Add products directly to the shopping cart
 - Smooth and interactive user experience
 
-### 🛒 Shopping Cart
+###  Shopping Cart
 
 The shopping cart provides complete cart management functionality:
 
@@ -69,7 +69,7 @@ The shopping cart provides complete cart management functionality:
 
 Cart data is stored using browser Local Storage, allowing users to keep their cart even after refreshing the page.
 
-### 📦 Order Checkout
+###  Order Checkout
 
 Customers can enter their:
 
@@ -81,7 +81,7 @@ Customers can enter their:
 
 The checkout system automatically prepares the complete order information before sending it to WhatsApp.
 
-### 💬 WhatsApp Ordering
+###  WhatsApp Ordering
 
 Foodota includes a complete WhatsApp ordering flow.
 
@@ -100,7 +100,7 @@ The generated message is then sent directly through WhatsApp.
 
 This allows the website to provide a realistic online ordering experience without requiring a dedicated backend or payment gateway.
 
-### 🚚 Restaurant Features
+###  Restaurant Features
 
 - Online Ordering
 - Fast Delivery
@@ -109,7 +109,7 @@ This allows the website to provide a realistic online ordering experience withou
 - Responsive Design
 - Modern User Interface
 
-### 🎨 UI / UX
+### UI / UX
 
 - Modern restaurant-oriented interface
 - Responsive design
@@ -125,7 +125,7 @@ The layout supports screens around 320px and above, with responsive behavior acr
 
 ---
 
-## 🧰 Technologies Used
+##  Technologies Used
 
 ### Front-End
 
@@ -144,7 +144,7 @@ Product information is currently stored in JavaScript arrays and rendered dynami
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 Foodota/
